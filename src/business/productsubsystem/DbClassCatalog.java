@@ -6,7 +6,12 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
 
+import javax.sql.DataSource;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+
 import presentation.gui.GuiUtils;
+import launch.Start;
 import middleware.DbConfigProperties;
 import middleware.dataaccess.DataAccessSubsystemFacade;
 import middleware.exceptions.DatabaseException;
@@ -23,6 +28,8 @@ public class DbClassCatalog implements DbClass {
 		Logger.getLogger(DbClassCatalog.class.getPackage().getName());
 	private DataAccessSubsystem dataAccessSS = 
     	new DataAccessSubsystemFacade();
+	
+	private JdbcTemplate template = new JdbcTemplate((DataSource) Start.ctx.getBean("productsdbDAO"));
 	
 	private static TwoKeyHashMap<Integer, String, Catalog> catalogTable;
 	private List<Catalog> catalogList;
@@ -43,7 +50,10 @@ public class DbClassCatalog implements DbClass {
     public Integer saveNewCatalog(Catalog catalog) throws DatabaseException {
     	this.catalog = catalog;
     	queryType = SAVE_NEW_CAT;
-    	return dataAccessSS.saveWithinTransaction(this);  	
+    	//return dataAccessSS.saveWithinTransaction(this); 
+    	this.buildQuery();
+    	System.out.println("invoking template methods....");
+    	return template.update(getQuery());
     }
     
     /**

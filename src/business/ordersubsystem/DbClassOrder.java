@@ -8,17 +8,19 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Logger;
 
-import presentation.gui.GuiUtils;
+import javax.inject.Inject;
+
+import launch.Start;
 import middleware.DbConfigProperties;
 import middleware.dataaccess.DataAccessSubsystemFacade;
 import middleware.exceptions.DatabaseException;
 import middleware.externalinterfaces.DataAccessSubsystem;
 import middleware.externalinterfaces.DbClass;
 import middleware.externalinterfaces.DbConfigKey;
+import presentation.gui.GuiUtils;
 import business.exceptions.BackendException;
 import business.externalinterfaces.Address;
 import business.externalinterfaces.CartItem;
-import business.externalinterfaces.Catalog;
 import business.externalinterfaces.CreditCard;
 import business.externalinterfaces.CustomerProfile;
 import business.externalinterfaces.Order;
@@ -26,7 +28,6 @@ import business.externalinterfaces.OrderItem;
 import business.externalinterfaces.Product;
 import business.externalinterfaces.ProductSubsystem;
 import business.externalinterfaces.ShoppingCart;
-import business.productsubsystem.ProductSubsystemFacade;
 
 class DbClassOrder implements DbClass {
 	private static final Logger LOG = Logger.getLogger(DbClassOrder.class
@@ -46,6 +47,7 @@ class DbClassOrder implements DbClass {
 	private OrderImpl orderData;
 	private OrderItem orderItem;
 	private Order order;
+	private ProductSubsystem pss =(ProductSubsystem) Start.ctx.getBean("productsubsystem");//= new ProductSubsystemFacade();
 
 	DbClassOrder() {
 	}
@@ -242,7 +244,8 @@ class DbClassOrder implements DbClass {
 				int quantity = rs.getInt("quantity");
 				int price = rs.getInt("totalprice");
 				int productid = rs.getInt("productid");
-				ProductSubsystem pss = new ProductSubsystemFacade();
+				
+				
 				Product pd = pss.getProductFromId(productid);
 				OrderItem oi = new OrderItemImpl(pd.getProductName(), quantity,
 						price);

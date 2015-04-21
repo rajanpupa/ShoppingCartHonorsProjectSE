@@ -7,6 +7,11 @@ import java.util.logging.Logger;
 //import org.springframework.stereotype.Component;
 //import org.springframework.stereotype.Service;
 
+
+
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
 import middleware.exceptions.DatabaseException;
 import business.exceptions.BackendException;
 import business.externalinterfaces.Catalog;
@@ -14,7 +19,7 @@ import business.externalinterfaces.Product;
 import business.externalinterfaces.ProductSubsystem;
 import business.util.TwoKeyHashMap;
 
-//@Component("productsubsystem")
+@Service("productsubsystem")
 public class ProductSubsystemFacade implements ProductSubsystem {
 	private static final Logger LOG = Logger.getLogger(ProductSubsystemFacade.class
 			.getPackage().getName());

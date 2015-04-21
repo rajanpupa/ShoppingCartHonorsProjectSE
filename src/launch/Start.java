@@ -14,18 +14,19 @@ import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import presentation.control.BrowseSelectUIControl;
 import presentation.control.Callback;
 import presentation.control.LoginUIControl;
 import presentation.control.ManageProductsUIControl;
 import presentation.control.ViewOrdersUIControl;
 import presentation.gui.GuiConstants;
-
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 
 public class Start extends Application {	
-	
+	//static Gui gui;
+	public static ApplicationContext ctx; 
 	
 	public static void main(String[] args) {
 		launch(args);
@@ -36,6 +37,8 @@ public class Start extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) {
+		  ctx = new ClassPathXmlApplicationContext(
+				"launch/application.xml");
 		this.primaryStage = primaryStage;
 		BrowseSelectUIControl.INSTANCE.setPrimaryStage(primaryStage, getReturnMessageCallback());
 		

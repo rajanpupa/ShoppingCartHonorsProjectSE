@@ -5,6 +5,8 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+import javax.inject.Inject;
+
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -27,7 +29,8 @@ import business.externalinterfaces.ProductSubsystem;
 import business.productsubsystem.ProductSubsystemFacade;
 
 public class AddProductPopup extends Popup {
-	ProductSubsystem productSubSystem = new ProductSubsystemFacade();
+	@Inject
+	ProductSubsystem productSubSystem ;//= new ProductSubsystemFacade();
 	
 	MaintainProductsWindow maintainProductsWindow;
 	TextField catalogName = new TextField();

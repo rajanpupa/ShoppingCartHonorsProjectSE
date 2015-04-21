@@ -8,6 +8,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
 
+import javax.inject.Inject;
+
+import launch.Start;
 import business.Util;
 import business.exceptions.BackendException;
 import business.externalinterfaces.Address;
@@ -26,6 +29,8 @@ import business.util.TwoKeyHashMap;
 public class FinalOrderBean implements DynamicBean {
 	private static final Logger LOG = Logger.getLogger(FinalOrderBean.class
 			.getPackage().getName());
+	
+	static ProductSubsystem pss=(ProductSubsystem) Start.ctx.getBean("productsubsystem");// = new ProductSubsystemFacade();
     
 	private ShoppingCart shopCart;
 	public FinalOrderBean(ShoppingCart sc){		
@@ -79,7 +84,7 @@ public class FinalOrderBean implements DynamicBean {
     	List<CartItem> cartItems = shoppingCart.getCartItems();
     	//HashMap<Integer,Integer> reqAvailMap = new HashMap<Integer,Integer>();
     	List<Pair> reqAvailList = new ArrayList<Pair>();
-    	ProductSubsystem pss = new ProductSubsystemFacade();
+    	
     	//TwoKeyHashMap<Integer,String,Product> prodTable = (new ProductSubsystemFacade()).getProductTable();
     	CartItem nextItem = null;
     	String nextName = null;

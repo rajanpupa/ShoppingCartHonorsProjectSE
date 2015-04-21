@@ -3,6 +3,9 @@ package business.shoppingcartsubsystem;
 
 import java.util.logging.Logger;
 
+import javax.inject.Inject;
+
+import launch.Start;
 import business.exceptions.BackendException;
 import business.externalinterfaces.CartItem;
 import business.externalinterfaces.ProductSubsystem;
@@ -11,6 +14,9 @@ import business.productsubsystem.ProductSubsystemFacade;
 
 public class CartItemImpl implements CartItem {
 	private static final Logger log = Logger.getLogger(CartItem.class.getPackage().getName());
+	
+	
+	ProductSubsystem prodSS=(ProductSubsystem) Start.ctx.getBean("productsubsystem");// new ProductSubsystemFacade();
     Integer cartid;
     Integer productid;
     Integer cartItemId;
@@ -30,7 +36,7 @@ public class CartItemImpl implements CartItem {
         this.quantity = quantity;
         this.totalprice = totalprice;
         alreadySaved = false;
-        ProductSubsystem prodSS= new ProductSubsystemFacade();
+        //ProductSubsystem prodSS= new ProductSubsystemFacade();
         productid = prodSS.getProductFromName(productName).getProductId();
     }
     
@@ -47,7 +53,7 @@ public class CartItemImpl implements CartItem {
         this.quantity = quantity;
         this.totalprice =totalprice;
         this.alreadySaved = alreadySaved;
-        ProductSubsystem prodSS= new ProductSubsystemFacade();
+        
         productName = prodSS.getProductFromId(productid).getProductName();
     }
     

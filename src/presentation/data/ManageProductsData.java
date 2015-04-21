@@ -3,18 +3,25 @@ package presentation.data;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.ObservableMap;
+import launch.Start;
 import presentation.gui.GuiUtils;
 import business.exceptions.BackendException;
 import business.externalinterfaces.Catalog;
 import business.externalinterfaces.Product;
+import business.externalinterfaces.ProductSubsystem;
 import business.productsubsystem.ProductSubsystemFacade;
 import business.usecasecontrol.ManageProductsController;
 
 public enum ManageProductsData {
 	INSTANCE;
+	
+	@Inject
+	ProductSubsystem pss =(ProductSubsystem) Start.ctx.getBean("productsubsystem");
 	
 	//private ProductSubsystemFacade pss = new ProductSubsystemFacade();//dont use this directly here
 	private ManageProductsController manageProductController = new ManageProductsController();
@@ -132,7 +139,7 @@ public enum ManageProductsData {
 	private ObservableList<CatalogPres> readCatalogsFromDataSource() throws BackendException {
 		//return 
 		//FXCollections.observableList(DefaultData.CATALOG_LIST_DATA);
-		List<Catalog> catalogList = new ProductSubsystemFacade().getCatalogList();
+		List<Catalog> catalogList = pss.getCatalogList();
 		List<CatalogPres> catPresList = new ArrayList<CatalogPres>();
 		for(Catalog c : catalogList){
 			catPresList.add(new CatalogPres(c));
