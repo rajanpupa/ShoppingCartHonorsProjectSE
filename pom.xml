@@ -74,5 +74,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<directory>target</directory>
 	</build>
 </project>
