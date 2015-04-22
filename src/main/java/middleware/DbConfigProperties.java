@@ -6,7 +6,7 @@ import java.util.Properties;
 import java.util.logging.Logger;
 
 public class DbConfigProperties {
-	private static final String PROPERTIES = "src/main/java/resources//dbconfig.properties";
+	private static final String PROPERTIES = "resources/dbconfig.properties";
 	private static final Logger LOG = Logger.getLogger("");
 	private static final String PROPS = PROPERTIES;
 	// System.getProperty("user.dir") + "/" + PROPERTIES;
