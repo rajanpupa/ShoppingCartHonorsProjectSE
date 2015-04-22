@@ -37,8 +37,7 @@ public class Start extends Application {
 	
 	@Override
 	public void start(Stage primaryStage) {
-		  ctx = new ClassPathXmlApplicationContext(
-				"launch/application.xml");
+		  ctx = new ClassPathXmlApplicationContext("application.xml");
 		this.primaryStage = primaryStage;
 		BrowseSelectUIControl.INSTANCE.setPrimaryStage(primaryStage, getReturnMessageCallback());
 		
