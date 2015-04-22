@@ -21,4 +21,5 @@ public interface Address {
 	public String getAddress2();
 	public void setAddress1(String address1);
 	public void setAddress2(String address2);
+	public boolean equals(Address addr);
 }

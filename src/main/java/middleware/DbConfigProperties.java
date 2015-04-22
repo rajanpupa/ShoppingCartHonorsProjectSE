@@ -6,48 +6,46 @@ import java.util.Properties;
 import java.util.logging.Logger;
 
 public class DbConfigProperties {
-	private static final String PROPERTIES = "resources/dbconfig.properties";
+	private static final String PROPERTIES = "src/main/java/resources//dbconfig.properties";
 	private static final Logger LOG = Logger.getLogger("");
 	private static final String PROPS = PROPERTIES;
-		//System.getProperty("user.dir") + "/" + PROPERTIES;
+	// System.getProperty("user.dir") + "/" + PROPERTIES;
 	private static Properties props;
-	
+
 	static {
 		readProps();
 	}
-	
+
 	public String getProperty(String key) {
-		//System.out.println(props);
+		// System.out.println(props);
 		return props.getProperty(key);
-		
+
 	}
+
 	private static void readProps() {
 		readProps(PROPS);
-		
+
 	}
-	
+
 	/**
-	 * This method allows a client of this properties configurator
-	 * to point to a different location for the properties file.
+	 * This method allows a client of this properties configurator to point to a
+	 * different location for the properties file.
+	 * 
 	 * @param propsLoc
 	 */
 	public static void readProps(String loc) {
-		//System.out.println(loc);
+		// System.out.println(loc);
 		Properties ret = new Properties();
-            URL url = DbConfigProperties.class.getClassLoader().
-                    getResource(loc);
-            
-            try {
-                ret.load(url.openStream()); 
-            } catch(IOException e) {
-                LOG.warning("Unable to read properties file for Ebazaar");
-            } finally {
-                props = ret;
-            }
+		URL url = DbConfigProperties.class.getClassLoader().getResource(loc);
+		System.out.println("url:" + url + " - loc:" + loc);
+		try {
+			ret.load(url.openStream());
+		} catch (IOException e) {
+			LOG.warning("Unable to read properties file for Ebazaar");
+		} finally {
+			props = ret;
+		}
 
 	}
-	
-	
-	
-	
+
 }

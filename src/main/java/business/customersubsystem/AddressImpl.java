@@ -87,5 +87,16 @@ public class AddressImpl implements Address {
 	public void setAddress2(String address2) {
 		this.address2 = address2;
 	}
+	@Override
+	public boolean equals(Address addr) {
+		if(this.state.equals(addr.getState())
+				&& city.equals(addr.getCity() )
+						&& street.equals(addr.getStreet())
+						&& zip.equals(addr.getZip())
+								){
+					return true;
+				}
+			return false;
+	}
 	
 }
