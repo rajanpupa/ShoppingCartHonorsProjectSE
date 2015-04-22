@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import middleware.exceptions.DatabaseException;
 import business.exceptions.BackendException;
 import business.externalinterfaces.CustomerProfile;
+import business.externalinterfaces.DbClassOrderForTest;
 import business.externalinterfaces.Order;
 import business.externalinterfaces.OrderItem;
 import business.externalinterfaces.OrderSubsystem;
@@ -87,5 +88,12 @@ public class OrderSubsystemFacade implements OrderSubsystem {
 		} catch (DatabaseException e) {
 			throw new BackendException(e);
 		}
+	}
+	
+	@Override
+	public DbClassOrderForTest getGenericDbClassOrder()
+	{
+		DbClassOrderForTest ord = new DbClassOrder(custProfile);
+		return ord;
 	}
 }

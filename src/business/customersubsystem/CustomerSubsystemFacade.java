@@ -33,6 +33,11 @@ public class CustomerSubsystemFacade implements CustomerSubsystem {
 	AddressImpl defaultBillAddress;
 	CreditCard defaultPaymentInfo;
 	CustomerProfileImpl customerProfile;
+	
+	public static Address createAddress(String street, String city, String state, String zip){
+		return new AddressImpl(street, city, state, zip, true, true);
+	}
+	
 
 	/**
 	 * Use for loading order history, default addresses, default payment info,
@@ -207,12 +212,7 @@ public class CustomerSubsystemFacade implements CustomerSubsystem {
 
 	@Override
 	public void refreshAfterSubmit() throws BackendException {
-		// loadDefaultShipAddress();
-		// loadDefaultBillAddress();
-		// loadDefaultPaymentInfo();
-		shoppingCartSubsystem.retrieveSavedCart();
 		loadOrderData();
-
 	}
 
 	@Override

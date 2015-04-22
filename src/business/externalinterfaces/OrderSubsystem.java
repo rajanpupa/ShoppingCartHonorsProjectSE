@@ -19,6 +19,6 @@ public interface OrderSubsystem {
 	 */ 
     void submitOrder(ShoppingCart shopCart) throws BackendException;
 	
-	
+    public DbClassOrderForTest getGenericDbClassOrder();
 
 }

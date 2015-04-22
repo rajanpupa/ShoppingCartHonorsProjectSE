@@ -23,13 +23,14 @@ import business.externalinterfaces.Address;
 import business.externalinterfaces.CartItem;
 import business.externalinterfaces.CreditCard;
 import business.externalinterfaces.CustomerProfile;
+import business.externalinterfaces.DbClassOrderForTest;
 import business.externalinterfaces.Order;
 import business.externalinterfaces.OrderItem;
 import business.externalinterfaces.Product;
 import business.externalinterfaces.ProductSubsystem;
 import business.externalinterfaces.ShoppingCart;
 
-class DbClassOrder implements DbClass {
+class DbClassOrder implements DbClass, DbClassOrderForTest {
 	private static final Logger LOG = Logger.getLogger(DbClassOrder.class
 			.getPackage().getName());
 	private DataAccessSubsystem dataAccessSS = new DataAccessSubsystemFacade();
@@ -69,7 +70,7 @@ class DbClassOrder implements DbClass {
 		this.custProfile = custProfile;
 	}
 
-	List<Integer> getAllOrderIds(CustomerProfile custProfile)
+	public List<Integer> getAllOrderIds(CustomerProfile custProfile)
 			throws DatabaseException {
 		this.custProfile = custProfile;
 		queryType = GET_ORDER_IDS;

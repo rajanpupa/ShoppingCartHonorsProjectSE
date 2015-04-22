@@ -143,4 +143,21 @@ public enum ShoppingCartSubsystemFacade implements ShoppingCartSubsystem {
 	public CartItem getEmptyCartItemForTest() {
 		return new CartItemImpl();
 	}
+	
+	@Override
+	public void setLiveCart(ShoppingCart cart) {
+		if(cart instanceof ShoppingCartImpl){
+			this.liveCart = (ShoppingCartImpl)cart;
+		}
+	}
+	
+	@Override
+	public ShoppingCart getSavedCart() {
+		return savedCart;
+	}
+
+	@Override
+	public DbClassShoppingCartForTest getDBClassShoppingCartForTest() {
+		return new DbClassShoppingCart();
+	}
 }

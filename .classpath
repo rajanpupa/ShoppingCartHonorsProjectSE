@@ -16,12 +16,10 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="D:/rajan/externalJars/creditVerifSystem.jar"/>
-	<classpathentry kind="lib" path="D:/rajan/externalJars/jess.jar"/>
-	<classpathentry kind="lib" path="D:/rajan/externalJars/junit.jar"/>
-	<classpathentry kind="lib" path="D:/rajan/externalJars/rulesencoding.jar"/>
-	<classpathentry kind="lib" path="D:/rajan/externalJars/rulesengine.jar"/>
-	<classpathentry kind="lib" path="D:/rajan/externalJars/slf4j-api-1.7.2.jar"/>
-	<classpathentry kind="lib" path="D:/rajan/externalJars/slf4j-jdk14-1.7.2.jar"/>
+	<classpathentry kind="lib" path="E:/All_Backups/study/Mum/softwareEngineering/mainProjectIF-NOT-USING-SVN/jars/creditVerifSystem.jar"/>
+	<classpathentry kind="lib" path="E:/All_Backups/study/Mum/softwareEngineering/mainProjectIF-NOT-USING-SVN/jars/jess.jar"/>
+	<classpathentry kind="lib" path="E:/All_Backups/study/Mum/softwareEngineering/mainProjectIF-NOT-USING-SVN/jars/mysql-connector-java-5.1.20-bin.jar"/>
+	<classpathentry kind="lib" path="E:/All_Backups/study/Mum/softwareEngineering/mainProjectIF-NOT-USING-SVN/jars/rulesencoding.jar"/>
+	<classpathentry kind="lib" path="E:/All_Backups/study/Mum/softwareEngineering/mainProjectIF-NOT-USING-SVN/jars/rulesengine.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
