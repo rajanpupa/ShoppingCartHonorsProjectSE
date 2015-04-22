@@ -13,7 +13,7 @@ public class RulesConfigProperties {
     private static final String PROPERTIES = "resources/rulesconfig.properties";
     private static final Logger LOG = Logger.getLogger("");
     private static final String PROPS = PROPERTIES;
-    public static Properties props;
+    public static Properties props=null;
 
     static {
         if (props == null) {

@@ -28,6 +28,10 @@ public class Start extends Application {
 	//static Gui gui;
 	public static ApplicationContext ctx; 
 	
+	static{
+		ctx = new ClassPathXmlApplicationContext("application.xml");
+	}
+	
 	public static void main(String[] args) {
 		launch(args);
 	}
