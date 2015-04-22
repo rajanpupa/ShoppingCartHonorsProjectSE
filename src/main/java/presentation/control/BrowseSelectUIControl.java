@@ -304,6 +304,7 @@ public enum BrowseSelectUIControl {
 				CustomerSubsystem customerSubsystem = DataUtil
 						.readCustFromCache();
 				customerSubsystem.saveShoppingCart();
+				shoppingCartWindow.show();
 				shoppingCartWindow.displayInfo("Saved Cart successfully");
 
 			} catch (BackendException e) {
@@ -320,6 +321,7 @@ public enum BrowseSelectUIControl {
 				LoginUIControl loginControl = new LoginUIControl(
 						shoppingCartWindow, primaryStage, this);
 				loginControl.startLogin();
+				shoppingCartWindow.hide();
 			} else {
 				doUpdate();
 			}
