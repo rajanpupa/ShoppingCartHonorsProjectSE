@@ -5,8 +5,6 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
-import javax.inject.Inject;
-
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -21,16 +19,19 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Popup;
+
+import javax.inject.Inject;
+
 import presentation.data.DefaultData;
 import presentation.data.ProductPres;
 import business.exceptions.BackendException;
 import business.externalinterfaces.Product;
-import business.externalinterfaces.ProductSubsystem;
 import business.productsubsystem.ProductSubsystemFacade;
+import business.usecasecontrol.ManageProductsController;
 
 public class AddProductPopup extends Popup {
-	@Inject
-	ProductSubsystem productSubSystem ;//= new ProductSubsystemFacade();
+	
+	ManageProductsController prodController = new ManageProductsController();
 	
 	MaintainProductsWindow maintainProductsWindow;
 	TextField catalogName = new TextField();
@@ -137,7 +138,7 @@ public class AddProductPopup extends Popup {
 				try {
 					Product newProd = ProductSubsystemFacade.createProduct(
 							// DefaultData.CATALOG_MAP.get(catalogName.getText()),
-							productSubSystem.getCatalogFromName(catalogName.getText()),
+							prodController.getCatalogFromName(catalogName.getText()),
 							Integer.parseInt(id.getText()), 
 							name.getText(), 
 							Integer.parseInt(numAvail.getText()),
