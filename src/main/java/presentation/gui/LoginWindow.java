@@ -1,6 +1,9 @@
 
 package presentation.gui;
 
+import java.util.logging.Logger;
+
+import business.usecasecontrol.ManageProductsController;
 import presentation.control.LoginUIControl;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -17,6 +20,8 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class LoginWindow extends Stage implements MessageableWindow {
+	 private static final Logger LOG = 
+		    	Logger.getLogger(LoginWindow.class.getName());
 	LoginUIControl control;
 	final Text messageBar = new Text();
 	TextField userTextField = new TextField();
