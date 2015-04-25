@@ -69,6 +69,12 @@ public class ManageProductsController   {
 	public void updateProduct(Product product) throws BackendException {
 		productSubSystem.updateProduct(product);
 	}
+
+
+	public Catalog getCatalogFromName(String text) throws BackendException {
+		// TODO Auto-generated method stub
+		return productSubSystem.getCatalogFromName(text);
+	}
     
     
 }

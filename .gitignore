@@ -1,4 +1,8 @@
 bin/*
 /target/*
 *.class
+<<<<<<< HEAD
 .classpath
+=======
+/target/
+>>>>>>> bc0f571a1e1f7f4428869e6a1bc8ccf5f06cff11

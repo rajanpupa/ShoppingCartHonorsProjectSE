@@ -1,7 +1,5 @@
 package presentation.gui;
 
-import javax.inject.Inject;
-
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -19,7 +17,6 @@ import javafx.stage.Popup;
 import presentation.data.CatalogPres;
 import presentation.data.DefaultData;
 import business.externalinterfaces.Catalog;
-import business.externalinterfaces.ProductSubsystem;
 import business.productsubsystem.ProductSubsystemFacade;
 
 public class AddCatalogPopup extends Popup {
@@ -29,8 +26,7 @@ public class AddCatalogPopup extends Popup {
 	HBox sceneTitle;
 	HBox topLevel;
 	Text messageBar = new Text();
-	@Inject
-	ProductSubsystem productSubSystem ;//= new ProductSubsystemFacade();
+	
 	
 	private HBox setUpTopLabel() {
 		Label label = new Label("Add Catalog");

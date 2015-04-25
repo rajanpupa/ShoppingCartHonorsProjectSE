@@ -34,7 +34,11 @@ public class RulesSubsystemFacade implements RulesSubsystem {
 		wrapper.setCurrentModule(rulesIface.getModuleName());
 		try {
 			String path = dirPrefix + nameOfRulesFile;
+<<<<<<< HEAD
 			System.out.println("------------path ----------------------" + path);
+=======
+			System.out.println("fullpath " + path);
+>>>>>>> bc0f571a1e1f7f4428869e6a1bc8ccf5f06cff11
 			URL url = this.getClass().getClassLoader().
                     getResource(path);
             BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));

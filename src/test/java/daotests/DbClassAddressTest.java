@@ -43,6 +43,8 @@ public class DbClassAddressTest extends TestCase {
 		} catch(Exception e) {
 			fail("Address Lists don't match");
 		}
+		
+		
 	}
 
 	/*
